@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloController {
-    @GetMapping("hello")
+    @GetMapping("hello")  //  /hello url과 연결한다.
     public String hello(Model model) {
-        model.addAttribute("data", "유동안입니다.");
-        return "hello";
+        model.addAttribute("data", "YOO입니다.");
+        return "hello";  // hello.html
     }
     @GetMapping("hello-mvc")
     public String helloMVC(@RequestParam("name") String name, Model model) {
