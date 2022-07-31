@@ -16,7 +16,7 @@ class MemberServiceTest {
 
     @BeforeEach
     public void beforeEach() {
-        this.memberService = new MemberService();
+        this.memberService = new MemberService(new MemoryMemberRepository());
         this.memberRepository = new MemoryMemberRepository();
     }
 
