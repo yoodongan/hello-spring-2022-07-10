@@ -19,16 +19,7 @@ class MemberServiceTest {
         this.memberService = new MemberService();
         this.memberRepository = new MemoryMemberRepository();
     }
-    @Test
-    public void 중복_회원_예외발생() {
-        Member member1 = new Member();
-        member1.setName("spring");
 
-        Member member2 = new Member();
-        member2.setName("spring");
-        memberService.join(member1); // 일단 member1 가입하고,
-        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
-        assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
     @Test
     void 회원가입() {
         //given
@@ -42,7 +33,16 @@ class MemberServiceTest {
         assertThat(findMember.getName()).isEqualTo(member.getName());
     }
 
+    @Test
+    public void 중복_회원_예외발생() {
+        Member member1 = new Member();
+        member1.setName("spring");
 
+        Member member2 = new Member();
+        member2.setName("spring");
+        memberService.join(member1); // 일단 member1 가입하고,
+        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
+        assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 
 
 //        try {
